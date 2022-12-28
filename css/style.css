@@ -51,6 +51,7 @@ input{
   font-size: 20px
 }
 
+
 li{
   list-style-type: none;
   font-size: 25px;
@@ -60,17 +61,31 @@ li{
 button{
 font-size: 30px
 }
+.topnav{
+  background-image: linear-gradient(white,grey);
 
-.top-nav {
+}
+.topnav li{
   font-size: 30px;
 text-decoration: none;
-text-align: right;
-}
+display: inline;
+font-size: 30px;
+ margin-bottom: 10px;
+ padding: 10px;
 
-.top-nav li a{
+}
+#left{
+  float: left;
+}
+.topnav li a{
   text-decoration: none;
+  float: right;
 }
+.formlogin{
+  margin: auto;
+  width: 500px
 
+}
 h1{
   background-color: grey;
   font-size: 40px;
@@ -83,12 +98,12 @@ h2{
 }
 
 
-nav ul{
+#sidenav ul{
  margin: 0;
  padding: 0
 }
 
-nav li{
+#sidenav li{
   font-size: 30px;
    margin-bottom: 10px;
    padding: 10px;
@@ -103,11 +118,22 @@ text-align: center;
 
 }
 
+.whachap{
+  border: 2px groove grey;
+  padding:5px;
+  margin-left: 650px;
+  margin-right: 650px;
+
+  text-align: center;
+}
+label{
+  font-size: 30px
+}
 div{
 border: 2px double;
-border-color: blue;
+border-color:Grey;
 
 }
-nav li a{
+#sidenav li a{
   text-decoration: none;
 }
