@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+ <body>
+
+ <p id ="test1"></p>
+ <p id = "test2"></p>
+
+ <script>
+ class Events{
+ sumArray(somevalues) {
+ /* create a variable that holds the sum
+of the array and set the value to 0*/
+
+let total = 0;
+
+ /* create a variable that holds the length of
+ the array for the loop*/
+
+let al = somevalues.length;
+
+
+ /* loop through the array adding each item to the
+ item in the variable that holds the sum*/
+
+for (let i = 0; i<al; i++){
+  total = total + somevalues[i];
+}
+
+ /* at the end of the loop, return the sum*/
+ return total;
+ }
+
+ //follow the same method for the sum but return sum/len
+ avgArray(somevalues){
+ let total = 0;
+ let al = somevalues.length;
+ for (let i = 0; i<al; i++){
+   total = total + somevalues[i];
+ }
+ return total/al;
+}
+}
+ let myTest = new Events();
+ let myArray =[1,2,3,5,6,8,5];
+ document.getElementById("test1").innerHTML = myTest.sumArray(myArray);
+ document.getElementById("test2").innerHTML = myTest.avgArray(myArray);
+</script>
+
+ </body>
+ </html>

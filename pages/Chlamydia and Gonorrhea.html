@@ -4,6 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="../css/style.css">
      <meta name="viewport" content="">
+
+     <style>
+       span{
+         color: red;
+       }
+     </style>
 </head>
 <body>
 <header>
@@ -32,20 +38,20 @@
 
   </header>
 
-  <form>
+  <form name="cgh" onsubmit="return validatecgh();">
 
 
   <label for="Date">Date</label>
-  <input type="date" name="" value=""><br/>
+  <input type="date" name="date" value=""><span id="dateErr"></span><br/>
 
   <label for="text">Person Completing Form:</label>
-  <input type="text" name="" value=""><br/>
+  <input type="text" name="pcf" value=""><span id="pcfErr"></span><br/>
 
   <label for="text">Health Provider:</label>
-  <input type="text" name="" value=""><br/>
+  <input type="text" name="hp" value=""><span id="hpErr"></span><br/>
 
   <label for="tel">Contact phone number/fax:</label>
-  <input type="tel" name="" value=""><br/>
+  <input type="tel" name="cpn" value=""><span id="cpnErr"></span><br/>
 
   <p>
   Your lab reported a communicable disease on the patient shown below and listed you as the provider. The Oregon Department of Human Services and Washington County require additional information. The fax cover sheet you have received references Oregon Law (ORS 433) that requires you to report this information. Please complete the form within 24 hours, or by the end of the next working day, and fax it back to our office at 503-846-3644. If you prefer you may call to report the required</br> information. We appreciate your cooperation and prompt handling of this confidential report.<br/>
@@ -53,15 +59,15 @@
 
   <h2>Patient Information — Please complete all information requested below </h2>
   <label for="text">Name:</label>
-  <input type="text" name="" value=""><br/>
+  <input type="text" name="nam" onblur="return validatenam();"><span id="nErr"></span><br/>
 
   <label for="Date">Date of Birth</label>
-  <input type="date" name="" value=""><br/>
+  <input type="date" name="dob" value="" ><span id="dobErr"></span><br/>
 
   <label for="radio"><h3>Gender</h3></label><br/>
-  <input type="radio" name="adio" value="">Male
-  <input type="radio" name="adio" value="">Female
-  <input type="radio" name="adio" value="">Other
+  <input type="radio" name="gen" value="">Male <span id="genErr"></span>
+  <input type="radio" name="gen" value="">Female
+  <input type="radio" name="gen" value="">Other
 
   <h3>HOME ADDRESS: </h3>
   <label for="text">street</label>
@@ -88,12 +94,12 @@
   <input type="text" name="" value=""><br/>
 
   <label for="radio"><h3>ETHNICITY:</h3></label><br/>
-  <input type="radio" name="radio" value="">Hispanic
+  <input type="radio" name="radio" value="">Hispanic <span id="ethErr"></span>
   <input type="radio" name="radio" value="">Non-Hispanic
   <input type="radio" name="radio" value="">Unknown<br/>
 
   <label for="radio"><h3>RACE:</h3></label></br>
-  <input type="radio" name="rado" value="">White<br/>
+  <input type="radio" name="rado" value="">White<br/><span id="raceErr"></span>
   <input type="radio" name="rado" value="">Black<br/>
   <input type="radio" name="rado" value="">Asian<br/>
   <input type="radio" name="rado" value="">American Indian<br/>
@@ -103,14 +109,14 @@
   <input type="radio" name="rado" value="">Other:<br/>
 
   <label for="radio"><h3>GENDER OF SEX PARTNER(S):</h3></label><br/>
-  <input type="radio" name="ado" value="">Male<br/>
+  <input type="radio" name="ado" value="">Male<br/><span id="gspErr"></span>
   <input type="radio" name="ado" value="">Female<br/>
   <input type="radio" name="ado" value="">Both<br/>
   <input type="radio" name="ado" value="">Unknown<br/>
 
   <label for="radio"><h3>TEST RESULT TYPE: </h3></label><br/>
   <input type="radio" name="radoi" value=""> Chlamydia Positive Result<br/>
-  <input type="radio" name="radoi" value="">Gonorrhea Positive Result<br/>
+  <input type="radio" name="radov" value="">Gonorrhea Positive Result<br/><span id="gprErr"></span>
   <label for="Date">Date:</label>
   <input type="date" name="" value=""><br/>
 
@@ -124,27 +130,27 @@
   <input type="text" name="" value="">month of last test<br/>
   <input type="text" name="" value="">year of last test<br/>
   <h3>REASON FOR EXAM:</h3>
-  <input type="checkbox" name="" value="">Symptomatic<br/>
-  <input type="checkbox" name="" value="">Routine Exam<br/>
-  <input type="checkbox" name="" value="">Test for Cure<br/>
-  <input type="checkbox" name="" value="">Exposed to Infection<br/>
-  <input type="checkbox" name="" value="">Pregnant<br/>
+  <input type="checkbox" name="re" value="">Symptomatic<br/><spanm id="reErr"></span>
+  <input type="checkbox" name="re" value="">Routine Exam<br/>
+  <input type="checkbox" name="re" value="">Test for Cure<br/>
+  <input type="checkbox" name="re" value="">Exposed to Infection<br/>
+  <input type="checkbox" name="re" value="">Pregnant<br/>
   <h3>DIAGNOSIS:</h3>
-  <input type="checkbox" name="" value="">Asymptomatic<br/>
-  <input type="checkbox" name="" value="">Symptomatic-Uncomplicated<br/>
-  <input type="checkbox" name="" value="">Pelvic Inflammatory Disease (PID)<br/>
-  <input type="checkbox" name="" value="">Ophthalmia /conjunctivitis <br/>
-  <input type="checkbox" name="" value="">Disseminated<br/>
+  <input type="checkbox" name="d" value="">Asymptomatic<br/><span id="DErr"></span>
+  <input type="checkbox" name="d" value="">Symptomatic-Uncomplicated<br/>
+  <input type="checkbox" name="d" value="">Pelvic Inflammatory Disease (PID)<br/>
+  <input type="checkbox" name="d" value="">Ophthalmia /conjunctivitis <br/>
+  <input type="checkbox" name="d" value="">Disseminated<br/>
 
   <h3>SITE(S):</h3>
-  <input type="checkbox" name="" value="">Cervix<br/>
-  <input type="checkbox" name="" value="">Vaginal<br/>
-  <input type="checkbox" name="" value="">Urethra<br/>
-  <input type="checkbox" name="" value="">Rectum<br/>
-  <input type="checkbox" name="" value="">Ocular<br/>
-  <input type="checkbox" name="" value="">Urine<br/>
-  <input type="checkbox" name="" value="">Pharynx<br/>
-  <input type="checkbox" name="" value="">Other:<br/>
+  <input type="checkbox" name="s" value="">Cervix<br/><span id="sErr"></span>
+  <input type="checkbox" name="s" value="">Vaginal<br/>
+  <input type="checkbox" name="s" value="">Urethra<br/>
+  <input type="checkbox" name="s" value="">Rectum<br/>
+  <input type="checkbox" name="s" value="">Ocular<br/>
+  <input type="checkbox" name="s" value="">Urine<br/>
+  <input type="checkbox" name="s" value="">Pharynx<br/>
+  <input type="checkbox" name="s" value="">Other:<br/>
 
   <h2>GONORRHEA TREATMENT PLAN:</h2>
   <input type="checkbox" name="" value="">Rocephin/Cefriaxone 250mg IM x 1<br/>
@@ -206,6 +212,6 @@
 </article>
 
 </section>
-
+<script src="../script/cg.js"></script>
 </body>
 </html>
