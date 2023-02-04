@@ -4,6 +4,53 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="../css/style.css">
      <meta name="viewport" content="">
+     <script src="../script/riskfactors.js" charset="utf-8"></script>
+     <script src="week 20.js"></script>
+     <style>
+       #drag, #drop{
+         border: 2px groove black;
+         height: 420px;
+         width: 420px;
+         margin:20px;
+         display: inline-grid;
+
+       }
+
+     div{
+       margin: 10px;
+
+     }
+     body{
+       font-size: 20px
+     }
+
+     #item1{
+       height: 30px
+     }
+
+     #item2{
+       height: 30px
+     }
+
+     #item3{
+       height: 30px
+     }
+     #item4{
+       height: 30px
+     }
+
+     #item5{
+       height: 30px
+     }
+
+     #item6{
+       height: 30px
+     }
+
+     #item7{
+       height: 30px
+     }
+     </style>
 </head>
 <body>
 <header>
@@ -23,6 +70,25 @@
 </nav>
 </header>
 <section class="row">
+
+
+  <body>
+    <h1>Risk factors form</h1>
+    <p>In the past 12 months, drag the options that apply.</p>
+
+    <div id="drag" class="col-9" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <div id="item1" draggable="true" ondragstart="drag(event)">Had sex with males</div>
+  <div id="item2" draggable="true"  ondragstart="drag(event)">Had sex with females</div>
+  <div id="item3" draggable="true" ondragstart="drag(event)">victim of sexual assult</div>
+  <div id="item4" draggable="true" ondragstart="drag(event)">homeless</div>
+  <div id="item5" draggable="true" ondragstart="drag(event)">incarcerated</div>
+  <div id="item6" draggable="true" ondragstart="drag(event)">posible exposure</div>
+  <div id="item7" draggable="true" ondragstart="drag(event)"  >routine screening</div>
+    </div>
+    <div id="drop" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    </div>
+  </body>
 
 
 </article>
